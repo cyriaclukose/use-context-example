@@ -1,5 +1,122 @@
 # Getting Started with Create React App
 
+## useContext
+
+useContext hook helps us to pass the information to a nested component easily
+
+Here we have to create the context using the createContext and nowe we have
+to wrap the commponent in the contextProvider
+
+const SampleContext= createContext;
+
+this we can define outside the functional component
+
+now define the state we want to pass using the context inside the functional component
+
+const [user,setUser]= useState("Aaron Luke");
+
+now let us wrap the component inside the SampleContext.Provider 
+as shown below
+
+function App(){
+
+
+return (<div>
+<SampleContext.Provider>
+<h2> The user name in app component is : {user}</h2>
+<Component1 >
+</div>)
+</SampleContext.Provider>
+
+
+}
+
+
+
+
+
+```html
+
+import { createContext, useState } from "react";
+import Component1 from "./Component1";
+
+export const sampleContext = createContext();
+
+function App() {
+
+
+  const [user, setUser] = useState("Aaron Luke")
+
+  return (
+
+
+
+    <sampleContext.Provider value={user}>
+
+      <div >
+        <h2>Inside app component use name is: {user}</h2>
+        <Component1/>
+      </div>
+    </sampleContext.Provider>
+  );
+}
+
+export default App;
+
+```
+```HTML
+
+import Component2 from "./Component2"
+function Component1(){
+
+return(<>
+<h2> Inside Component 1</h2>
+<Component2/>
+</>)
+
+}
+
+export default Component1
+
+```
+
+
+```HTML
+
+import Component2 from "./Component2"
+function Component1(){
+
+return(<>
+<h2> Inside Component 2</h2>
+<Component2/>
+</>)
+
+}
+
+export default Component2
+
+```
+
+```HTML;
+
+import { useContext } from "react";
+import {sampleContext} from './App'
+
+function Component3(){
+
+const user= useContext(sampleContext)
+
+return (<>
+<h2>Inside the componenet 3</h2>
+<h2>the user value in component 3 is {user}</h2>
+</>)
+
+}
+
+
+export default Component3;
+
+```
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
