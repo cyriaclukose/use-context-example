@@ -8,7 +8,7 @@ function App() {
 
 
   const [user, setUser] = useState("Aaron Luke")
-  const container = document.getElementById("root");
+
   return (
 
 

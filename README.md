@@ -16,7 +16,13 @@ now define the state we want to pass using the context inside the functional com
 const [user,setUser]= useState("Aaron Luke");
 
 now let us wrap the component inside the SampleContext.Provider 
-as shown below
+as shown below. We also need to export the SampleContext so that
+we can import in the componnet we want to use
+
+```HTML
+
+
+export const SampleContext = createContext();
 
 function App(){
 
@@ -30,6 +36,8 @@ return (<div>
 
 
 }
+
+```
 
 
 
